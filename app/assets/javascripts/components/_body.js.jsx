@@ -6,6 +6,49 @@ class Body extends React.Component {
         };
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
         this.addNewImage = this.addNewImage.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
+        this.deleteImage = this.deleteImage.bind(this)
+        this.handleUpdate = this.handleUpdate.bind(this)
+        this.updateImage = this.updateImage.bind(this)
+    }
+
+    handleUpdate(image){
+        fetch(`http://localhost:3000/api/v1/images/${image.id}`,
+            {
+                method: 'PUT',
+                body: JSON.stringify({image: image}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((response) => {
+            this.updateImage(image)
+        })
+    }
+    updateImage(image){
+        let newImages = this.state.images.filter((i) => i.id !== image.id)
+        newImages.push(image)
+        this.setState({
+            images: newImages
+        })
+    }
+
+    handleDelete(id){
+        fetch(`http://localhost:3000/api/v1/images/${id}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((response) => {
+                this.deleteImage(id)
+        })
+    }
+
+    deleteImage(id){
+        newImages = this.state.images.filter((image) => image.id !== id)
+        this.setState({
+            images: newImages
+        })
     }
 
     handleFormSubmit(url){
@@ -37,7 +80,7 @@ class Body extends React.Component {
         return(
             <div>
                 <NewImage handleFormSubmit={this.handleFormSubmit}/>
-                <AllImages images={this.state.images} />
+                <AllImages images={this.state.images} handleDelete={this.handleDelete} handleUpdate = {this.handleUpdate} />
             </div>
         )
     }
