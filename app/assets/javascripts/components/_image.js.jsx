@@ -26,10 +26,10 @@ class Image extends React.Component{
                                                     <img src={this.props.image.url} alt={'picture'}/>
                                                 </div>
         return(
-            <div>
+            <div className={'text-center brd'}>
                 {url}
-                <button onClick={() => this.handleEdit()}>{this.state.editable? 'Submit' : 'Edit'}</button>
-                <button onClick={() => this.props.handleDelete(this.props.image.id)}>Delete</button>
+                <button className={'btn btn-primary btn-align'} onClick={() => this.handleEdit()}>{this.state.editable? 'Submit' : 'Edit'}</button>
+                <button className={'btn btn-primary btn-align'} onClick={() => this.props.handleDelete(this.props.image.id)}>Delete</button>
             </div>
         )
     }

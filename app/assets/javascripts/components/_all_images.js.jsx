@@ -7,7 +7,7 @@ const AllImages = (props) => {
         )
     })
     return(
-        <div>
+        <div className={'wrapper text-center'}>
             {images}
         </div>
     )

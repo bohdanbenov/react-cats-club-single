@@ -5,8 +5,12 @@ const NewImage = (props) => {
         <form onSubmit={(e) => {props.handleFormSubmit(formFields.url.value);
                                 e.target.reset();}
         }>
-            <input ref={input => formFields.url = input} placeholder='Enter url of the picture'/>
-            <button>Submit</button>
+            <div className={'input-group mb-3'}>
+                <input className={'form-control'} ref={input => formFields.url = input} placeholder='Enter url of the picture'/>
+                <div className={'input-group-append'}>
+                    <button className={'btn btn-outline-secondary'}>Submit</button>
+                </div>
+            </div>
         </form>
     )
 }
