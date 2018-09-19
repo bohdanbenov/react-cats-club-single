@@ -20,7 +20,11 @@ class Image extends React.Component{
     }
 
     render(){
-        let url = this.state.editable ? <input type='text' ref={input => this.url = input} defaultValue={this.props.image.url}/>:<p>{this.props.image.url}</p>
+        let url = this.state.editable ? <input type='text' ref={input => this.url = input}
+                                               defaultValue={this.props.image.url}/>:
+                                                <div>
+                                                    <img src={this.props.image.url} alt={'picture'}/>
+                                                </div>
         return(
             <div>
                 {url}
