@@ -1,5 +1,8 @@
 {
   "name": "ReactCatsClubSingle",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "nuka-carousel": "^4.3.11",
+    "react-responsive-carousel": "^3.1.42"
+  }
 }
