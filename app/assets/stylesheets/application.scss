@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 320px 320px 320px 320px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.btn-align{
+  margin: 10px;
+}
+
+.brd {
+  border: 4px ridge deepskyblue;
+  background: #00ffa0;
+  padding: 10px;
+}
